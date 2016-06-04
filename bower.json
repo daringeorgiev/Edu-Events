@@ -32,6 +32,7 @@
     "wow": "^1.1.2",
     "owl.carousel": "^2.1.5",
     "ui-bootstrap": "^1.3.3",
-    "modernizr": "^3.3.1"
+    "modernizr": "^3.3.1",
+    "owlcar": "^1.3.2"
   }
 }
