@@ -22,7 +22,7 @@ module.exports = {
 
     createEvent: function(req, res) {
         Event.find({
-            eventName: req.body.eventName
+            name: req.body.name
         }, function(err, data) {
             if (err) {
                 res.send(err);
@@ -33,7 +33,7 @@ module.exports = {
                     .send('The event already exist. You should change the name.');
             } else {
                 Event.create({
-                    eventName: req.body.eventName,
+                    name: req.body.name,
                     ownerId: req.body.ownerId,
                     school: req.body.school,
                     address: req.body.address,
@@ -41,6 +41,8 @@ module.exports = {
                     subject: req.body.subject,
                     date: req.body.date,
                     email: req.body.email,
+                    phone: req.body.phone ? req.body.phone : '',
+                    descr: req.body.descr ? req.body.descr : '',
                     link: req.body.link ? req.body.link : ''
                 }, function(err, event) {
                     if (err) {
@@ -69,7 +71,7 @@ module.exports = {
                     .send('You are not authorized to update this event');
             }
 
-            event.eventName = req.body.eventName;
+            event.name = req.body.name;
             event.ownerId = req.body.ownerId;
             event.school = req.body.school;
             event.address = req.body.address;
@@ -77,6 +79,8 @@ module.exports = {
             event.subject = req.body.subject;
             event.date = req.body.date;
             event.email = req.body.email;
+            event.phone = req.body.phone ? req.body.phone : '';
+            event.descr = req.body.descr ? req.body.descr : '';
             event.link = req.body.link ? req.body.link : '';
 
             event.save(function(err, event) {
