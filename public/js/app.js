@@ -6,6 +6,7 @@ var app = angular.module('eventApp',['ngRoute'])
         $routeProvider
             .when('/',{
                 templateUrl: 'partials/home.html',
+                controller: 'HomePageController as homeCtr',
                 reloadOnSearch: false
             })
             .when('/register', {
