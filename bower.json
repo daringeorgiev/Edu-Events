@@ -1,0 +1,32 @@
+{
+  "name": "edu-events",
+  "description": "Web platform for sharing educational events and competitions between schools.",
+  "main": "index.js",
+  "authors": [
+    "georgiev.darin@gmail.com",
+    "angel.s.dimitrov@gmail.com",
+    "svilkors@gmail.com"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "education",
+    "events",
+    "competitons"
+  ],
+  "homepage": "https://github.com/darinnn/Edu-Events",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "bootstrap": "^3.3.6",
+    "angular-bootstrap": "^1.3.3"
+  }
+}
