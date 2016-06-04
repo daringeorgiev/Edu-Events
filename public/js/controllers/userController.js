@@ -31,7 +31,7 @@
             self.sendRegisterForm = function () {
                 if (self.user.userName && self.user.userName.length >= minUserNameLength &&
                     self.user.password && self.user.password.length >= minPasswordLength) {
-                    userService.registerUser(self.user.userName, self.user.password)
+                    userService.registerUser(self.user.userName, self.user.password, self.user.email, self.user.school, self.user.schoolAddress)
                         .then(function successCallback(res) {
                             $location.path('#');
                             userService.setUser(res.data);
