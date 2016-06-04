@@ -9,7 +9,7 @@ module.exports = function (app) {
     app.post('/api/register', usersCtrl.userRegister);
 
     //Events =================================================
-    app.get('/api/events', auth.isLoggedIn, eventsCtrl.getAllEvents);
+    app.get('/api/events', eventsCtrl.getAllEvents);
     app.get('/api/events/:id', eventsCtrl.getEventById);
     app.post('/api/events', auth.isLoggedIn, eventsCtrl.createEvent);
     app.put('/api/events/:id', auth.isLoggedIn, eventsCtrl.updateEvent);
