@@ -31,7 +31,7 @@ var eventSchema = Schema({
         type: 'Date',
         unique: true,
     },
-    eMail: {
+    email: {
         type: 'String',
         unique: true,
     },

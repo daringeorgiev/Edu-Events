@@ -33,8 +33,15 @@ module.exports = {
                     .send('The event already exist. You should change the name.');
             } else {
                 Event.create({
-                    // ToDo set Event
-
+                    eventName: req.body.eventName,
+                    ownerId: req.body.ownerId,
+                    school: req.body.school,
+                    address: req.body.address,
+                    grade: req.body.grade,
+                    subject: req.body.subject,
+                    date: req.body.date,
+                    email: req.body.email,
+                    link: req.body.link ? req.body.link : ''
                 }, function(err, event) {
                     if (err) {
                         res.send(err);
@@ -56,7 +63,16 @@ module.exports = {
                 return res.status(403)
                     .send('You are not authorized to update this event');
             }
-            // ToDo set Event
+
+            event.eventName = req.body.eventName;
+            event.ownerId = req.body.ownerId;
+            event.school = req.body.school;
+            event.address = req.body.address;
+            event.grade = req.body.grade;
+            event.subject = req.body.subject;
+            event.date = req.body.date;
+            event.email = req.body.email;
+            event.link = req.body.link ? req.body.link : '';
 
             event.save(function(err, event) {
                 if (err) {
