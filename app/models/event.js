@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var eventSchema = Schema({
-    eventName: {
+    name: {
         type: 'String',
         unique: true,
         index: true,
@@ -36,6 +36,8 @@ var eventSchema = Schema({
         type: 'String',
         required: true,
     },
+    phone: String,
+    descr: String,
     link: String
 });
 
