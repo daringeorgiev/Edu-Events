@@ -5,19 +5,23 @@ var app = angular.module('eventApp',['ngRoute'])
         'use strict';
         $routeProvider
             .when('/',{
-                templateUrl: 'partials/test.html',
+                templateUrl: 'partials/home.html',
                 reloadOnSearch: false
             })
             .when('/register', {
-                template: '<div>register</div>',
+                templateUrl: 'partials/register.html',
                 reloadOnSearch: false
             })
-            .when('/edit-event', {
-                template: '<div>edit event</div>',
+            .when('/register-event', {
+                templateUrl: 'partials/register-event.html',
                 reloadOnSearch: false
             })
             .when('/view-events', {
-                template: '<div>view events</div>',
+                templateUrl: 'partials/view-events.html',
+                reloadOnSearch: false
+            })
+            .when('/about', {
+                templateUrl: 'partials/about.html',
                 reloadOnSearch: false
             })
             .otherwise({redirectTo: '/'});
