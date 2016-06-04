@@ -1,25 +1,27 @@
 var app = angular.module('eventApp',['ngRoute'])
 
-.config(['$routeProvider',function($routeProvider){
+.config(['$routeProvider', '$locationProvider',
+        function($routeProvider, $locationProvider){
         'use strict';
-    $routeProvider
+        $routeProvider
         .when('/',{
             reloadOnSearch: false
         })
         .when('/register', {
             template: '<div>register</div>',
-            controller: '',
             reloadOnSearch: false
         })
         .when('/edit-event', {
             template: '<div>edit event</div>',
-            controller: '',
             reloadOnSearch: false
         })
         .when('/view-events', {
             template: '<div>view events</div>',
-            controller: '',
             reloadOnSearch: false
         })
-        .otherwise({redirectTo: '/'})
+        .otherwise({redirectTo: '/'});
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
 }]);
