@@ -3,7 +3,7 @@
     app.controller('EventController', ['$scope', '$rootScope', '$route','$routeParams', '$location', 'eventService', 'userService',
         function ($scope, $rootScope, $route, $routeParams, $location, eventService, userService) {
         var self = this;
-        console.log('testsdasda');
+
         self.user = userService.getUser();
         self.allEvents = eventService.getStoredEvents();
 
