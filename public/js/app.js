@@ -20,6 +20,7 @@ var app = angular.module('eventApp',['ngRoute'])
             })
             .when('/view-events', {
                 templateUrl: 'partials/view-events.html',
+                controller: 'EventController as eventCtrl',
                 reloadOnSearch: false
             })
             .when('/about', {
