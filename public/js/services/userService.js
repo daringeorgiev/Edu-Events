@@ -16,11 +16,15 @@
             });
         }
 
-        function registerUser(userName, password) {
+        function registerUser(userName, password, email, school, schoolAddress) {
             return $http.post('api/register', {
                 'name': userName,
-                'password': password
+                'password': password,
+                'email': email,
+                'school': school,
+                'schoolAddress': schoolAddress
             });
+
         }
 
         function setUser(data) {
