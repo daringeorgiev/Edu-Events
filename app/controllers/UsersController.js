@@ -10,25 +10,25 @@ module.exports = {
         }, function (err, user) {
 
             if (err) {
-                res.json({success: false, message: err});
+                res.json({message: err});
                 throw err;
             }
 
             if (!user) {
                 res.status(401)
-                    .json({success: false, message: 'Authentication failed. User not found.'});
+                    .json({message: 'Authentication failed. User not found.'});
             } else if (user) {
 
                 // check if password matches
                 if (!user.validPassword(req.body.password)) {
                     res.status(401)
-                        .json({success: false, message: 'Authentication failed. Wrong password.'});
+                        .json({message: 'Authentication failed. Wrong password.'});
                 } else {
 
                     // if user is found and password is right
                     // create a token
                     var token = jwt.sign(user, authentication.secretPhrase, {
-                        expiresInMinutes: '1440' // expires in 24 hours
+                        expiresIn: '1440m' // expires in 24 hours
                     });
 
                     // return the information including token as JSON
@@ -69,7 +69,7 @@ module.exports = {
 
                     // create a token
                     var token = jwt.sign(user, authentication.secretPhrase, {
-                        expiresInMinutes: '1440' // expires in 24 hours
+                        expiresIn: '1440m' // expires in 24 hours
                     });
 
                     res.status(200)
