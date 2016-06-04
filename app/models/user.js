@@ -12,7 +12,7 @@ var userSchema = Schema({
         type: 'String',
         unique: true,
     },
-    eMail: {
+    email: {
         type: 'String',
         unique: true,
     },

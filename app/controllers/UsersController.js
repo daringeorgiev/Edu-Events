@@ -34,9 +34,12 @@ module.exports = {
                     // return the information including token as JSON
                     res.status(200)
                         .json({
-                            userName: user.name,
+                            name: user.name,
                             _id: user._id,
-                            token: token
+                            token: token,
+                            email: user.email,
+                            school: user.school,
+                            schoolAddress: user.schoolAddress,
                         });
                 }
             }
@@ -56,8 +59,10 @@ module.exports = {
                 var user = new User();
                 user.name = req.body.name;
                 user.password = user.generateHash(req.body.password);
+                user.email = req.body.email;
+                user.school = req.body.school;
+                user.schoolAddress = req.body.schoolAddress;
                 user.admin = false;
-
 
                 user.save(function (err) {
                     if (err) throw err;
@@ -69,9 +74,12 @@ module.exports = {
 
                     res.status(200)
                         .json({
-                            userName: user.name,
+                            name: user.name,
                             _id: user._id,
-                            token: token
+                            token: token,
+                            email: user.email,
+                            school: user.school,
+                            schoolAddress: user.schoolAddress,
                         });
                 });
             }
