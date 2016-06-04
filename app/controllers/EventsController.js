@@ -54,9 +54,14 @@ module.exports = {
     },
 
     updateEvent: function(req, res) {
-        Event.findById(req.body._id, function(err, event) {
+        Event.findById(req.params.id, function(err, event) {
             if (err) {
                 throw err;
+            }
+
+            if (!event) {
+                return res.status(404)
+                    .send('Event not found');
             }
 
             if (event.ownerId && (res.req.decoded && event.ownerId !== res.req.decoded._id || !res.req.decoded)) {

@@ -5,35 +5,36 @@ var eventSchema = Schema({
     eventName: {
         type: 'String',
         unique: true,
-        index: true
+        index: true,
+        required: true
     },
     ownerId: {
         type: 'String',
-        unique: true,
+        required: true,
     },
     school: {
         type: 'String',
-        unique: true,
+        required: true,
     },
     address: {
         type: 'String',
-        unique: true,
+        required: true,
     },
     grade: {
         type: 'String',
-        unique: true,
+        required: true,
     },
     subject: {
         type: 'String',
-        unique: true,
+        required: true,
     },
     date: {
         type: 'Date',
-        unique: true,
+        required: true,
     },
     email: {
         type: 'String',
-        unique: true,
+        required: true,
     },
     link: String
 });

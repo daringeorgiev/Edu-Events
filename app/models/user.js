@@ -6,15 +6,16 @@ var userSchema = Schema({
     name: {
         type: 'String',
         unique: true,
-        index: true
+        index: true,
+        required: true
     },
     password: {
         type: 'String',
-        unique: true,
+        required: true,
     },
     email: {
         type: 'String',
-        unique: true,
+        required: true,
     },
     school: String,
     schoolAddress: String,
