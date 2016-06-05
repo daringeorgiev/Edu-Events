@@ -12,6 +12,10 @@ var eventSchema = Schema({
         type: 'String',
         required: true,
     },
+    town: {
+        type: 'String',
+        required: true,
+    },
     school: {
         type: 'String',
         required: true,
