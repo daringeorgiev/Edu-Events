@@ -2,6 +2,7 @@ var Event = require('../models/event');
 
 module.exports = {
     getAllEvents: function(req, res) {
+        // ToDo - filter by query params
         Event.find({}, function(err, events) {
             if (err) {
                 throw err;

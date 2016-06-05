@@ -75,6 +75,10 @@
             return $http.get('/api/subjects');
         }
 
+        function filterEvents(keyword, town, subject) {
+            return $http.get('/api/events?keyword=' + keyword + '&town=' + town + '&subject=' + subject);
+        }
+
         return {
             getAllEvents: getAllEvents,
             getMyEvents: getMyEvents,
@@ -87,7 +91,8 @@
             getSelectedEvent: getSelectedEvent,
             setSelectedEvent: setSelectedEvent,
             getTowns: getTowns,
-            getSubjects: getSubjects
+            getSubjects: getSubjects,
+            filterEvents: filterEvents
         };
     }]);
 }());

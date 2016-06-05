@@ -41,8 +41,15 @@
         }();
 
         self.filterEvents = function() {
+            eventService.filterEvents(self.keyword, self.selectedTown, self.selectedSubject)
+                .then(function successCallback(res) {
+                    eventService.setStoredEvents(res.data);
+                    self.selectedEventGetterSetter('');
+                }, function errorCallback(res) {
+                    self.selectedEventGetterSetter('');
+                    console.log('Error: ' + JSON.stringify(res.data));
+                });
             console.log('search by ' + self.keyword + ' ' + self.selectedTown + ' ' + self.selectedSubject);
-            // ToDo
         };
 
         self.getMyEvents = function() {
