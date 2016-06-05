@@ -7,7 +7,29 @@
         self.user = userService.getUser();
         self.allEvents = eventService.getStoredEvents();
 
-        (self.getAllEvents = function() {
+        self.keyword = '';
+        self.selectedTown = {};
+        self.selectedSubject = {};
+
+        self.getTowns = function() {
+            eventService.getTowns()
+                .then(function successCallback(res) {
+                    self.towns = res.data;
+                }, function errorCallback(res) {
+                    console.log('Error: ' + JSON.stringify(res.data));
+                });
+        }();
+
+        self.getSubjects = function() {
+            eventService.getSubjects()
+                .then(function successCallback(res) {
+                    self.subjects = res.data;
+                }, function errorCallback(res) {
+                    console.log('Error: ' + JSON.stringify(res.data));
+                });
+        }();
+
+        self.getAllEvents = function() {
             eventService.getAllEvents()
                 .then(function successCallback(res) {
                     eventService.setStoredEvents(res.data);
@@ -16,7 +38,19 @@
                     self.selectedEventGetterSetter('');
                     console.log('Error: ' + JSON.stringify(res.data));
                 });
-        })();
+        }();
+
+        self.filterEvents = function() {
+            eventService.filterEvents(self.keyword, self.selectedTown, self.selectedSubject)
+                .then(function successCallback(res) {
+                    eventService.setStoredEvents(res.data);
+                    self.selectedEventGetterSetter('');
+                }, function errorCallback(res) {
+                    self.selectedEventGetterSetter('');
+                    console.log('Error: ' + JSON.stringify(res.data));
+                });
+            console.log('search by ' + self.keyword + ' ' + self.selectedTown + ' ' + self.selectedSubject);
+        };
 
         self.getMyEvents = function() {
             eventService.getMyEvents()
@@ -82,10 +116,10 @@
                 });
         };
 
-        self.changeSelectedEvent = function(event) {
-            eventService.setSelectedEvent(event);
-            $location.search('id', self.selectedEvent._id);
-        };
+        // self.changeSelectedEvent = function(event) {
+        //     eventService.setSelectedEvent(event);
+        //     $location.search('id', self.selectedEvent._id);
+        // };
 
         self.selectedEventGetterSetter = function(newInputValue) {
             if (arguments.length) {
@@ -95,10 +129,10 @@
         };
 
         // Set selected event id as URL parameter
-        $rootScope.$on('$routeChangeStart', function(next, last) {
-            if ($location.path() === '/' && self.selectedEvent._id) {
-                $location.search('id', self.selectedEvent._id);
-            }
-        });
+        // $rootScope.$on('$routeChangeStart', function(next, last) {
+        //     if ($location.path() === '/' && self.selectedEvent._id) {
+        //         $location.search('id', self.selectedEvent._id);
+        //     }
+        // });
     }]);
 }());

@@ -10,35 +10,35 @@ var eventSchema = Schema({
     },
     ownerId: {
         type: 'String',
-        required: true,
+        required: true
     },
     town: {
         type: 'String',
-        required: true,
+        required: true
     },
     school: {
         type: 'String',
-        required: true,
+        required: true
     },
     address: {
         type: 'String',
-        required: true,
+        required: true
     },
     grade: {
         type: 'String',
-        required: true,
+        required: true
     },
     subject: {
         type: 'String',
-        required: true,
+        required: true
     },
     date: {
         type: 'Date',
-        required: true,
+        required: true
     },
     email: {
         type: 'String',
-        required: true,
+        required: true
     },
     phone: String,
     descr: String,

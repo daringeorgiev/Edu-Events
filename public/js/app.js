@@ -14,6 +14,11 @@ var app = angular.module('eventApp',['ngRoute'])
                 controller: 'UserController as userCtrl',
                 reloadOnSearch: false
             })
+            .when('/login', {
+                templateUrl: 'partials/login.html',
+                controller: 'UserController as userCtrl',
+                reloadOnSearch: false
+            })
             .when('/register-event', {
                 templateUrl: 'partials/register-event.html',
                 controller: 'EventController as eventCtrl',

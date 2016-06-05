@@ -8,7 +8,7 @@
 
         </div>
     </div>
-    <div class="container slider-content">
+    <div class="container slider-content" ng-controller="EventController as eventCtrl">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
                 <div class="slider-header">
@@ -18,28 +18,25 @@
                 <div class="search-form wow pulse" data-wow-delay="0.8s">
                     <form action="" class=" form-inline">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Ключова дума">
+                            <input type="text" class="form-control" placeholder="Ключова дума" ng-model="eventCtrl.keyword">
                         </div>
                         <div class="form-group">
-                            <select name="" id="" class="form-control" placeholder="Избери твоя град">
-                                <option disabled>Избери твоя град</option>
-                                <option selected>Слънчака</option>
-                                <option>Слънчака</option>
-                                <option>Плаза</option>
-                                <option>Спиндерман</option>
+                            <select name="" id="" class="form-control" placeholder="Избери твоя град" ng-model="eventCtrl.selectedTown">
+                                <option selected>Всички градове</option>
+                                <option ng-repeat="town in eventCtrl.towns">
+                                    {{town.name}}
+                                </option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <select name="" id="" class="form-control">
-                                <option disabled>Избери предмет</option>
-                                <option selected>От къдя на къдя ?</option>
-                                <option>От къдя на къдя ?</option>
-                                <option>Нямам основно</option>
+                            <select name="" id="" class="form-control" ng-model="eventCtrl.selectedSubject">
+                                <option selected>Всички предмети</option>
+                                <option ng-repeat="subject in eventCtrl.subjects">
+                                    {{subject.name}}
+                                </option>
                             </select>
                         </div>
-                        <input type="submit" class="btn" value="Search">
-
-
+                        <a href="/view-events" class="btn btr-primary" ng-click="eventCtrl.filterEvents()">Търси</a>
                     </form>
                 </div>
             </div>
