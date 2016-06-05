@@ -25,7 +25,7 @@ var eventSchema = Schema({
         required: true,
     },
     grade: {
-        type: 'String',
+        type: 'Array',
         required: true,
     },
     subject: {

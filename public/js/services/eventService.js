@@ -67,6 +67,14 @@
             return self.selectedEvent;
         }
 
+        function getTowns() {
+            return $http.get('/api/towns');
+        }
+
+        function getSubjects() {
+            return $http.get('/api/subjects');
+        }
+
         return {
             getAllEvents: getAllEvents,
             getMyEvents: getMyEvents,
@@ -78,6 +86,8 @@
             getStoredEvents: getStoredEvents,
             getSelectedEvent: getSelectedEvent,
             setSelectedEvent: setSelectedEvent,
+            getTowns: getTowns,
+            getSubjects: getSubjects
         };
     }]);
 }());
