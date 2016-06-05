@@ -27,6 +27,7 @@
 
         function createEvent(event) {
             var req = event;
+            req.ownerId = $window.localStorage._id
             req.token = $window.localStorage.token;
             return $http.post('/api/events', req);
         }

@@ -10,6 +10,20 @@
         self.keyword = '';
         self.selectedTown = {};
         self.selectedSubject = {};
+        self.event = {
+            name: '',
+            ownerId: '',
+            town: '',
+            school: '',
+            address: '',
+            grade: '',
+            subject: '',
+            date: '',
+            email: '',
+            phone: '',
+            descr: '',
+            link: ''
+        };
 
         self.getTowns = function() {
             eventService.getTowns()
@@ -64,14 +78,14 @@
         };
 
         self.createNewEvent = function () {
-            eventService.createEvent(self.newEvent)
+            eventService.createEvent(self.event)
                 .then(function successCallback(res) {
                     eventService.setSelectedEvent(res.data);
                     self.isSaveAsEventVisible = false;
                     self.allEvents.push(res.data);
-                    self.changeEventColors();
+                    //self.changeEventColors();
                     $location.path('/');
-                    $location.search('id', self.selectedEvent._id);
+                    //$location.search('id', self.selectedEvent._id);
                 }, function errorCallback(res) {
                     console.log("Error: " + res.data);
                 });
