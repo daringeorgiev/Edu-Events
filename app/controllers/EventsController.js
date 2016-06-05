@@ -35,6 +35,7 @@ module.exports = {
                 Event.create({
                     name: req.body.name,
                     ownerId: req.body.ownerId,
+                    town: req.body.town,
                     school: req.body.school,
                     address: req.body.address,
                     grade: req.body.grade,
@@ -73,6 +74,7 @@ module.exports = {
 
             event.name = req.body.name;
             event.ownerId = req.body.ownerId;
+            event.town = req.body.town;
             event.school = req.body.school;
             event.address = req.body.address;
             event.grade = req.body.grade;

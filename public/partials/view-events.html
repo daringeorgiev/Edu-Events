@@ -1,7 +1,7 @@
-<div>
+<div >
     <div>view events</div>
     <div>
-        <button ng-click="eventCtrl.getAllEvents()">get ALL</button>
-        all events - {{eventCtrl.allEvents}}
+        <!--<button ng-click="eventCtrl.getAllEvents()">get ALL</button>-->
+        <event ng-repeat="event in eventCtrl.allEvents" event-data="event"></event>
     </div>
 </div>

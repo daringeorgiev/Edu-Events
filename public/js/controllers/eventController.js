@@ -3,11 +3,11 @@
     app.controller('EventController', ['$scope', '$rootScope', '$route','$routeParams', '$location', 'eventService', 'userService',
         function ($scope, $rootScope, $route, $routeParams, $location, eventService, userService) {
         var self = this;
-        console.log('testsdasda');
+
         self.user = userService.getUser();
         self.allEvents = eventService.getStoredEvents();
 
-        self.getAllEvents = function() {
+        (self.getAllEvents = function() {
             eventService.getAllEvents()
                 .then(function successCallback(res) {
                     eventService.setStoredEvents(res.data);
@@ -16,7 +16,7 @@
                     self.selectedEventGetterSetter('');
                     console.log('Error: ' + JSON.stringify(res.data));
                 });
-        }
+        })();
 
         self.getMyEvents = function() {
             eventService.getMyEvents()
