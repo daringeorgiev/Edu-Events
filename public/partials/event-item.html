@@ -21,6 +21,8 @@
             <div>
                 <u>Адрес</u>: {{event.address}}
                 <br/>
+                <u>Град</u>: {{event.town}}
+                <br />
                 <u>Телефон</u>: {{event.phone}}
                 <br />
                 <u>Имейл</u>: {{event.email}}
@@ -30,13 +32,13 @@
 
         </div>
         <div class="item-info-grade col-md-2">
-            <u>Класове</u>: {{event.grade}}
+            <u>Класове</u>: {{event.grade.replace('[','').replace(']','');}}
         </div>
         <div class="item-info-subject col-md-2">
             <u>Предмет</u>: {{event.subject}}
         </div>
         <div class="item-info-date col-md-2">
-            <u>Дата</u>: {{event.date}}
+            <u>Дата</u>: {{event.date.substr(0,10)}}
         </div>
     </div>
 
