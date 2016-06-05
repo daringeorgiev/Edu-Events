@@ -36,7 +36,7 @@
             <div id="status">&nbsp;</div>
         </div>
         <!-- Body content -->
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" ng-controller="LoginController as loginCtrl">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -51,14 +51,17 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <div class="button navbar-right">
-                  <a class="navbar-btn nav-button wow bounceInRight login" href="/login" data-wow-delay="0.8s">Вход</a>
-                  <a class="navbar-btn nav-button wow fadeInRight" href="/register" data-wow-delay="0.6s">Регистрация</a>
+              <div ng-if="!loginCtrl.isUserLoggedIn()" class="button navbar-right">
+                  <button class="navbar-btn nav-button wow bounceInRight login" ng-click="loginCtrl.onLoginClick()" data-wow-delay="0.8s">Вход</button>
+                  <button class="navbar-btn nav-button wow fadeInRight" ng-click="loginCtrl.onRegisterClick()" data-wow-delay="0.6s">Регистрация</button>
               </div>
+                <div ng-if="loginCtrl.isUserLoggedIn()" class="button navbar-right">
+                    <button class="navbar-btn nav-button wow fadeInRight" ng-click="loginCtrl.onLogoutClick()" data-wow-delay="0.6s">Изход</button>
+                </div>
               <ul class="main-nav nav navbar-nav navbar-right">
                 <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="/">Начало</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="/view-events">Събития</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="/view-events/my">Моите събития</a></li>
+                <li ng-if="loginCtrl.isUserLoggedIn()" class="wow fadeInDown" data-wow-delay="0.2s"><a href="/view-events/my">Моите събития</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/register-event">Създай събитие</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="/about">За нас</a></li>
               </ul>
@@ -133,6 +136,7 @@
         <script src="js/controllers/homePageController.js"></script>
         <script src="js/controllers/eventController.js"></script>
         <script src="js/controllers/userController.js"></script>
+        <script src="js/controllers/loginController.js"></script>
         <!--Directives-->
         <script src="js/directives/eventsDirective.js"></script>
         <!--HTML template js-->

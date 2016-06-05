@@ -14,10 +14,13 @@
                     self.user.password && self.user.password.length >= minPasswordLength) {
                     userService.loginUser(self.user.userName, self.user.password)
                         .then(function successCallback(res) {
+
                             userService.setUser(res.data);
+                            $location.path('#');
                             //TODO Add bootstrap notify
                             //notify({message: 'Login successful'});
                         }, function errorCallback(res) {
+                            $location.path('#');
                             userService.logoutUser();
                             //TODO Add bootstrap notify
                             //notify({message: 'Error: ' + res.data.message});
@@ -38,6 +41,7 @@
                             //TODO Add bootstrap notify
                             //notify({message: 'Registration successful'});
                         }, function errorCallback(res) {
+                            $location.path('#');
                             userService.logoutUser();
                             //TODO Add bootstrap notify
                             //notify({message: 'Error: ' + res.data.message});
@@ -49,6 +53,7 @@
             };
 
             self.onLogoutClick = function () {
+                $location.path('#');
                 userService.logoutUser();
                 //TODO Add bootstrap notify
                 //notify({message: 'Logout successful'});
