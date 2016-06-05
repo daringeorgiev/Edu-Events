@@ -28,12 +28,12 @@
         }
 
         function setUser(data) {
-            self.user.userName = data.userName;
+            self.user.userName = data.name;
             self.user._id = data._id;
             self.user.token = data.token;
             self.user.password = null;
 
-            $window.localStorage.setItem('userName', data.userName);
+            $window.localStorage.setItem('userName', data.name);
             $window.localStorage.setItem('_id', data._id);
             $window.localStorage.setItem('token', data.token);
         }
