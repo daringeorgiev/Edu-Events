@@ -16,10 +16,16 @@ var app = angular.module('eventApp',['ngRoute'])
             })
             .when('/register-event', {
                 templateUrl: 'partials/register-event.html',
+                controller: 'EventController as eventCtrl',
                 reloadOnSearch: false
             })
             .when('/view-events', {
                 templateUrl: 'partials/view-events.html',
+                controller: 'EventController as eventCtrl',
+                reloadOnSearch: false
+            })
+            .when('/view-events-my', {
+                templateUrl: 'partials/view-events-my.html',
                 controller: 'EventController as eventCtrl',
                 reloadOnSearch: false
             })

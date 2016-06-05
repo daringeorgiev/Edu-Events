@@ -1,33 +1,43 @@
-﻿<div class="event-item-container">
-    <h1>{{event.eventName}}</h1>
-    <div class="left-side-item-info">
-        <div class="item-image">
-        </div>
-        <div class="contact-details">
-            <h3>{{event.school}}</h3>
-        </div>
-        <div>
-            {{event.address}}
-            <hr />
-            <hr />
-            {{event.email}}
+﻿<div class="event-item-container container">
+    <div class="row">
+        <div class="event-name col-md-12 col-sm-12">
+            <p class="text-center h1">{{event.name}}</p>
         </div>
     </div>
-    <div class="right-side-item-info">
-        <div class="item-description">
-            <textarea>
-            </textarea>
+    <hr class="event-divider"/>
+    <div class="row">
+        <div class="left-side-item-info col-md-5 col-sm-4">
+                <img src="{{event.link}}" class="img-responsive" alt="Responsive image" />
         </div>
-        <div class="item-requirements">
-            <div class="item-info-grade">
-                {{event.grade}}
-            </div>
-            <div class="item-info-subject">
-                {{event.subject}}
-            </div>
-            <div class="item-info-date">
-                {{event.date}}
-            </div>
+        <div class="item-description col-md-7 col-sm-8">
+            <p>
+                {{event.descr}}
+            </p>
         </div>
     </div>
+    <div class="row">
+        <div class="contact-details col-md-3 col-sm-6">
+            <div class="h3">{{event.school}}</div>
+            <div>
+                <u>Адрес</u>: {{event.address}}
+                <br/>
+                <u>Телефон</u>: {{event.phone}}
+                <br />
+                <u>Имейл</u>: {{event.email}}
+            </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+        <div class="item-info-grade col-md-2">
+            <u>Класове</u>: {{event.grade}}
+        </div>
+        <div class="item-info-subject col-md-2">
+            <u>Предмет</u>: {{event.subject}}
+        </div>
+        <div class="item-info-date col-md-2">
+            <u>Дата</u>: {{event.date}}
+        </div>
+    </div>
+
 </div>

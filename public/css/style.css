@@ -599,6 +599,37 @@ body {
 	margin-top: 30px;
 }
 
+.event-item-container{
+}
+
+.about-us-container{
+    margin-top:3%;
+    margin-bottom:3%;
+}
+
+.empty-my-events-container{
+    margin-top:10%;
+    margin-bottom:10%;
+}
+
+.slider-header{
+    color:#00AEEF;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.event-divider{
+     display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #00AEEF;
+    margin: 1em 0;
+    padding: 0; 
+}
+.item-image-container{
+    max-width:400px;
+    max-height:400px;
+}
+
 /* Preloader */
 
 #preloader {
