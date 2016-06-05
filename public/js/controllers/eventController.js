@@ -95,10 +95,10 @@
             eventService.updateEvent(self.selectedEvent)
                 .then(function successCallback(res) {
                     eventService.setSelectedEvent(res.data);
-                    self.changeEventColors();
+                    //self.changeEventColors();
                     self.isEditEventVisible = false;
                     $location.path('/');
-                    $location.search('id', self.selectedEvent._id);
+                    //$location.search('id', self.selectedEvent._id);
                 }, function errorCallback(res) {
                     console.log("Error: " + res.data);
                 });
@@ -124,7 +124,7 @@
             eventService.getEventById(id)
                 .then(function successCallback(res) {
                     eventService.setSelectedEvent(res.data);
-                    self.changeEventColors();
+                    //self.changeEventColors();
                 }, function errorCallback(res) {
                     console.log("Error: " + res.data);
                 });
